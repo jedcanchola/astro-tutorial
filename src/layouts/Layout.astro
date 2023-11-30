@@ -14,9 +14,18 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
     <slot />
   </body>
 </html>
+
+<style>
+  a {
+    margin-top: 1rem;
+  }
+</style>
 
 <style is:global>
   :root {
