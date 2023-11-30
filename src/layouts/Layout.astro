@@ -14,9 +14,12 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/blog">Blog</a>
+    </nav>
+
     <slot />
   </body>
 </html>
@@ -24,6 +27,11 @@ const { title } = Astro.props;
 <style>
   a {
     margin-top: 1rem;
+  }
+  nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
   }
 </style>
 
@@ -43,6 +51,7 @@ const { title } = Astro.props;
     color: var(--white);
     background-color: #1f1f1f;
     background-size: 224px;
+    text-align: center;
   }
 
   *,

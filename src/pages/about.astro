@@ -1,7 +1,68 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Eduardo",
+  country: "Mexico",
+  occupation: "Developer",
+  hobbies: ["music", "videogames"],
+};
+
+const { firstName, country, occupation, hobbies } = identity;
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Svelte"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
-<Layout title="About">
-  <h2>About Page</h2>
+<Layout title={pageTitle}>
+  <h2>{pageTitle}</h2>
+
+  <section>
+    <p>Algunos datos acerca de mi:</p>
+    <ul>
+      <li>Mi nombre es {firstName}</li>
+      <li>Vivo en {country} y trabajo como {occupation}</li>
+      {
+        hobbies.length >= 2 && (
+          <li>
+            Mis hobbies son: {hobbies[0]} y {hobbies[1]}{" "}
+          </li>
+        )
+      }
+    </ul>
+
+    <p>Mis skills son:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    {happy && <p>Esoy feliz de aprender Astro!</p>}
+    {finished && <p>Termine este tutorial</p>}
+    {
+      goal === 3 ? (
+        <p>Mi meta es finalizar en 3 dias</p>
+      ) : (
+        <p>Mi meta no son 3 dias</p>
+      )
+    }
+  </section>
 </Layout>
+
+<style>
+  section {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>
